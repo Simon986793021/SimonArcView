@@ -1,4 +1,4 @@
-package com.wind.simonarcview;
+package com.wind.arcview;
 
 import android.content.Context;
 import android.graphics.Canvas;

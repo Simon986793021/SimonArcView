@@ -3,6 +3,8 @@ package com.wind.simonarcview;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.wind.arcview.SimonArcView;
+
 public class MainActivity extends AppCompatActivity {
     private SimonArcView simonArcView;
     @Override

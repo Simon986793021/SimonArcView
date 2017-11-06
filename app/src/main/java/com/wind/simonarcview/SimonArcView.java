@@ -14,6 +14,7 @@ import android.view.View;
 
 /**
  * Created by zhangcong on 2017/11/2.
+ * @author Simon
  */
 
 public class SimonArcView extends View {
@@ -21,10 +22,11 @@ public class SimonArcView extends View {
     private PointF startPoint,endPoint,controlPoint;
     private int width;
     private int height;
-    private int ArcHeight=100;
+    //初始弧形高度
+    private int ArcHeight=50;
     private Path path;
-    private int startColor;
-    private int endColor;
+    private String startColor;
+    private String endColor;
     private LinearGradient linearGradient;
     public SimonArcView(Context context) {
         super(context);
@@ -49,10 +51,26 @@ public class SimonArcView extends View {
         controlPoint=new PointF(0,0);
         path=new Path();
 
-        startColor= Color.parseColor("#FF3A80");
-        endColor=Color.parseColor("#FF3745");
+        startColor= "#11cd6e";
+        endColor="#92EFC0";
     }
 
+    /**
+    设置渐变的初始结束颜色
+     */
+    public void setColor(String startColor,String endColor)
+    {
+        this.startColor=startColor;
+        this.endColor=endColor;
+    }
+
+    /**
+     * 设置弧形高度
+     */
+    public void setArcHeight(int height)
+    {
+        this.ArcHeight=height;
+    }
 
 
     @Override
@@ -74,7 +92,7 @@ public class SimonArcView extends View {
         controlPoint.x=width/2;
         controlPoint.y=height+ArcHeight;
 
-        linearGradient=new LinearGradient(width/2,0,width/2,height,startColor,endColor, Shader.TileMode.MIRROR);
+        linearGradient=new LinearGradient(width/2,0,width/2,height,Color.parseColor(startColor),Color.parseColor(endColor), Shader.TileMode.MIRROR);
 
         invalidate();
 

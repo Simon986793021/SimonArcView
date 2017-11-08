@@ -6,13 +6,12 @@ import android.os.Bundle;
 import com.wind.arcview.SimonArcView;
 
 public class MainActivity extends AppCompatActivity {
-    private SimonArcView simonArcView;
+    private HomeBanner homeBanner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        simonArcView= (SimonArcView) findViewById(R.id.arcview);
-        simonArcView.setColor("#11cd6e","#cccccc");
-        simonArcView.setArcHeight(50);
+        homeBanner= (HomeBanner) findViewById(R.id.arc_view_pager);
+        homeBanner.setImagesRes(new int[]{R.drawable.banner3,R.drawable.banner2,R.drawable.banner1});
     }
 }

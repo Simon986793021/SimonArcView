@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SimonArcView.iml" filepath="$PROJECT_DIR$/SimonArcView.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/arcview/arcview.iml" filepath="$PROJECT_DIR$/arcview/arcview.iml" />
     </modules>
   </component>
 </project>

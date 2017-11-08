@@ -4,23 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.wind.simonarcview.MainActivity">
-    <com.wind.arcview.SimonArcView
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:id="@+id/arcview"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:orientation="vertical"
-        android:gravity="center"
-        >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="32sp"
-                android:text="弧形HeadView"
-                />
-    </LinearLayout>
+
+        <com.wind.simonarcview.HomeBanner
+            android:id="@+id/arc_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            >
+        </com.wind.simonarcview.HomeBanner>
+
 </FrameLayout>

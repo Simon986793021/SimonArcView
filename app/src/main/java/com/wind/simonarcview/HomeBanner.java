@@ -12,11 +12,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,17 +59,12 @@ public class HomeBanner extends FrameLayout implements View.OnClickListener {
     }
 
 
-    public void setTopBannerEntities(List<TopBannerEntity> topBannerEntities) {
-        this.topBannerEntities = topBannerEntities;
-
-    }
 
 
 
     public void setImagesRes(int[] imagesRes) {
         initLayout();
         initImgFromRes(imagesRes);
-        //setAtt();
 
     }
 
@@ -96,7 +86,7 @@ public class HomeBanner extends FrameLayout implements View.OnClickListener {
 
         for (int i = 0; i <= count + 1; i++) {
             View banner_view = LayoutInflater.from(context).inflate(R.layout.banner_content_layout, null);
-            ArcImageView imageView_banner_title = (ArcImageView) banner_view.findViewById(R.id.iv_banner_title);
+            ArcImageView imageView_banner_title = (ArcImageView) banner_view.findViewById(R.id.iv_img);
             if (i == 0) {
                 imageView_banner_title.setImageResource(imagesRes[count - 1]);
             } else if (i == count + 1) {
@@ -204,12 +194,6 @@ public class HomeBanner extends FrameLayout implements View.OnClickListener {
         public void onPageScrollStateChanged(int state) {
             switch (state) {
                 case 0:
-//                    if (viewPager.getCurrentItem() == 0) {
-//                        viewPager.setCurrentItem(topBannerEntities.size(), false);
-//                    } else if (viewPager.getCurrentItem() == topBannerEntities.size() + 1) {
-//                        viewPager.setCurrentItem(1, false);
-//                    }
-
                     if (viewPager.getCurrentItem() == 0) {
                         viewPager.setCurrentItem(count, false);
                     } else if (viewPager.getCurrentItem() == count + 1) {
@@ -223,6 +207,8 @@ public class HomeBanner extends FrameLayout implements View.OnClickListener {
                     break;
                 case 2:
                     isAutoPlay = true;
+                    break;
+                default:
                     break;
             }
         }

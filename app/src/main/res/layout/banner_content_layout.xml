@@ -7,6 +7,6 @@
     <com.wind.simonarcview.ArcImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/iv_banner_title"
-        android:scaleType="fitCenter"/>
+        android:id="@+id/iv_img"
+        />
 </LinearLayout>

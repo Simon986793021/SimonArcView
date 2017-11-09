@@ -8,6 +8,7 @@ import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PointF;
@@ -16,9 +17,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.widget.ImageView;
 
-import com.wind.arcview.SimonArcView;
 
 /**
  * Created by zhangcong on 2017/11/7.
@@ -36,8 +35,10 @@ public class ArcImageView extends android.support.v7.widget.AppCompatImageView {
     private String startColor;
     private String endColor;
     private Bitmap bitmap;
+    private float mScale=1.0f;
     public ArcImageView(Context context) {
         super(context);
+        this.init();
     }
 
     public ArcImageView(Context context, @Nullable AttributeSet attrs) {
@@ -48,8 +49,15 @@ public class ArcImageView extends android.support.v7.widget.AppCompatImageView {
     public ArcImageView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
+    public void setHeight(int height){
+        this.ArcHeight=height;
+
+    }
+    public void setScale(float scale)
+    {
+        this.mScale=scale;
+    }
     private void init() {
-        Log.i(">>>>>","222222");
         this.paint = new Paint();
         this.paint.setAntiAlias(true);
         this.startPoint = new PointF(0.0F, 0.0F);
@@ -80,12 +88,18 @@ public class ArcImageView extends android.support.v7.widget.AppCompatImageView {
         super.onDraw(canvas);
         if (bitmap!=null)
         {
+            //计算缩放比例
+
+            Matrix matrix = new Matrix();
+            matrix.setScale(mScale, mScale);
+
             Shader shader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+            shader.setLocalMatrix(matrix);
+
             paint.setShader(shader);
             this.path.moveTo(this.startPoint.x, this.startPoint.y);
             this.path.quadTo(this.controlPoint.x, this.controlPoint.y, this.endPoint.x, this.endPoint.y);
             canvas.drawPath(this.path,this.paint);
-            Log.i(">>>>>","333333");
         }
 
     }
